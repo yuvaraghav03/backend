@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken')
 const {jwtkey} = require('../keys')
 const router = express.Router();
 const User = mongoose.model('User');
-
+const Blogs = mongoose.model('Blogs');
 
 router.post('/signup',async (req,res)=>{
    
@@ -42,6 +42,19 @@ router.post('/signin',async (req,res)=>{
 
 
 })
+
+router.post("/blogs",async(req,res)=>{
+const {username,userpic,postimage,description,date}=req.body
+
+try {
+  const Blog = new Blogs({username,userpic,postimage,description,date});
+  await Blog.save();
+  res.send(Blog)
+} catch (err) {
+  return res.status(422).send(err.message)
+}
+
+});
 
 
 module.exports = router
