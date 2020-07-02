@@ -7,6 +7,7 @@ const bodyParser = require('body-parser')
 const {mongoUrl} = require('./keys');
 require('./models/User');
 require('./models/Blogs');
+require('./models/Polls');
 const requireToken =require('./middleware/requireToken')
 const auth = require('./routes/auth');
 

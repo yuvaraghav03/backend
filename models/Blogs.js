@@ -3,12 +3,12 @@ const { ObjectId } = require('mongodb');
 const blogSchema = new mongoose.Schema({
     username:{
         type:String,
-        required:true,
+      //  required:true,
         unique:true,
     },
     userpic:{
         type:String,
-        required:true,
+       // required:true,
     },
     description:{
         type:String,
