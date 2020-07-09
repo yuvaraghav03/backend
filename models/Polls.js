@@ -17,6 +17,10 @@ op2:{
 backgcolor:{
     type:String,
     required:true,
+},
+opcolor:{
+    type:String,
+    required:true,
 }
 
 
