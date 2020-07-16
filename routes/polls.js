@@ -4,12 +4,16 @@ const router = express.Router();
 const multer = require('multer');
 const Polls = mongoose.model('Polls');
 router.post("/polls",async(req,res)=>{
-    const {question,op1,op2,backgcolor,opcolor}=req.body;
+    const {question,op1,op2,backgcolor,opcolor,votecount}=req.body;
     
     try {
       const poll = new Polls({question,op1,op2,backgcolor,opcolor});
       await poll.save();
+
       res.send(poll)
+      const vote = new votecount;
+      await vote.save();
+      res.send(vote)
     } catch (err) {
       return res.status(422).send(err.message)
     }

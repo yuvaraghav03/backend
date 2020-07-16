@@ -9,11 +9,11 @@ tagline:{
     type:String,
     required:true,
 },
-/*postimage:{
+  postimage:{
     type:String,
     required:true
 }
-*/
+
 });
 
 mongoose.model('Profile',profileSchema);

@@ -5,9 +5,6 @@ const {jwtkey} = require('../keys')
 const router = express.Router();
 const User = mongoose.model('User');
 
-
-
-
 router.post('/signup',async (req,res)=>{
    
     const {usn,pass,num,email,username} = req.body;
@@ -45,6 +42,21 @@ router.post('/signin',async (req,res)=>{
 
 })
 
+router.route("/follow").get(function(req, res) {
+ try {
+   user.isFollowing({usn});
+   User.find({}, function(err, result) {
+    if (err) {
+      res.send(err);
+    } else {
+      res.send(result);
+    }
+  });
+ } catch (error) {
+  return res.status(422).send({error :"user is not following"})
+ }
+
+});
 
 
 module.exports = router;

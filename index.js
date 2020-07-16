@@ -17,7 +17,6 @@ const requireToken =require('./middleware/requireToken')
 const auth = require('./routes/auth');
 const blogs = require('./routes/blogs');
 const uploads = require('./routes/upload');
-const path = require('path');
 const profile = require('./routes/profile');
 const polls = require('./routes/polls');
 app.use(bodyParser.json(),bodyParser.urlencoded({

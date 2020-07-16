@@ -21,8 +21,10 @@ backgcolor:{
 opcolor:{
     type:String,
     required:true,
+},
+votecount:{
+     type:Number,
 }
-
 
 });
 

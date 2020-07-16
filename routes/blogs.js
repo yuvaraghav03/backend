@@ -4,8 +4,8 @@ const Blogs = mongoose.model('Blogs');
 const router = express.Router();
 
 router.post("/blogs",async(req,res)=>{
-    const {username,userpic,postimage,description,date}=req.body
-    
+    const {username,description,date}=req.body
+    const {userpic,postimage} = req.file
     try {
       const Blog = new Blogs({username,userpic,postimage,description,date});
       await Blog.save();
