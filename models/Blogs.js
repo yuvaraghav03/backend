@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const { ObjectId } = require('mongodb');
 const blogSchema = new mongoose.Schema({
-    username:{
+    usn:{
         type:String,
       //  required:true,
         unique:true,
@@ -18,13 +18,15 @@ const blogSchema = new mongoose.Schema({
     },
     date:{
         required:true,
-        type:String,
+        type:Date,
     },
     postimage:{
         required:true,
         type:String
     },
-
+    like_count:{
+        type:Number,
+    }
 });
 
 mongoose.model('Blogs',blogSchema);

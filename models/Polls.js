@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const { ObjectId } = require('mongodb');
+const User = require('../models/User');
 const pollSchema = new mongoose.Schema({
 question:{
     type:String,
@@ -27,5 +28,8 @@ votecount:{
 }
 
 });
-
+pollSchema.methods.countVote = function() {
+    const user = User;
+    votecount.save();     
+}
 mongoose.model('Polls',pollSchema);

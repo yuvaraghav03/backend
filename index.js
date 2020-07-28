@@ -1,14 +1,11 @@
 const express = require('express')
 const app = express()
-const appl = express()
 const mongoose = require('mongoose')
 var multer  = require('multer');
 const PORT = 3001
 const bodyParser = require('body-parser')
 const {mongoUrl} = require('./keys');
 var fs = require('fs'); 
-//var http = require('http').createServer(appl); //chat 
-//var io = require('socket.io')(http);
 require('./models/User');
 require('./models/Blogs');
 require('./models/Polls');
@@ -27,12 +24,9 @@ app.use(blogs);
 app.use(uploads);
 app.use(profile);
 app.use(polls);
-/*io.on('connection', (socket) => {
-    console.log('a user connected');
-  });
-*///chat
+app.use(polls);
 
-
+  
   
 mongoose.connect(mongoUrl,{
     useNewUrlParser:true,
@@ -46,10 +40,6 @@ mongoose.connection.on('connected',()=>{
 mongoose.connection.on('error',(err)=>{
     console.log('error connecting to database',err)
 })
-
-app.listen(PORT,()=>{
-    console.log('server is running at port '+PORT)
-})
 app.use(function (req, res, next) {
     res.status(404).send("Sorry you might be looking for something else")
   })
@@ -57,3 +47,6 @@ app.use(function (err, req, res, next) {
     console.error(err.stack)
     res.status(500).send('Something broke!')
   })
+app.listen(PORT,()=>{
+    console.log('server is running at port '+PORT)
+})

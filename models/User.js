@@ -72,7 +72,6 @@ userSchema.pre('save',function(next){
      })
 
     })
-
 })
 
 
